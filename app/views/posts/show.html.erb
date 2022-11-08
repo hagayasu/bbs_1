@@ -1,0 +1,46 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="index">
+ <p>
+   <strong>内容:</strong>
+   <%= @post.title %>
+ </p>
+
+  <p>
+     <strong>詳細:</strong>
+     <%= @post.content %>
+ </p>
+
+ <p>
+   <strong>備考:</strong>
+   <%= @post.auther %>
+ </p>
+
+ <p>
+   <strong>日時:</strong>
+   <%= @post.created_at %>
+   <%#= @post.datetime %>
+ </p>
+
+     <style>
+        p{
+            font-size: 18px;
+            display: flex;
+          }
+    </style>
+</div>
+
+
+
+
+<div>
+  <%= link_to "編集する", edit_post_path(@post) %> |
+  <%= link_to "一覧へ", posts_path %>
+
+  <%= button_to "削除", @post, method: :delete %>
+       <style>
+        p{
+            font-size: 18px;
+          }
+    </style>
+</div>

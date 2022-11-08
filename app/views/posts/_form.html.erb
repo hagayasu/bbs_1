@@ -1,0 +1,39 @@
+<%= form_with(model: post) do |form| %>
+  <% if post.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :"内容" %><br>
+    <%= form.select :title, [["出発", "出発"], ["到着", "到着"], ["活動開始", "活動開始"], ["活動終了", "活動終了"], ["その他", "その他"], ["  ", "  "]] ,class:"form-control" %>
+    <%#= form.label :内容, style: "display: block" %>
+    <%#= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :詳細, style: "display: block" %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div>
+    <%= form.label :備考, style: "display: block" %>
+    <%= form.text_field :auther %>
+  </div>
+
+  <div>
+    <%#= form.label :日時, style: "display: block" %>
+    <%#= form.datetime_select :datetime %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
